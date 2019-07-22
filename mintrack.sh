@@ -20,7 +20,7 @@ bincommand="$HOME/bin/track";
 # task for an option if nothing is given
 if [ ! "$task" ]; then
     echo -e "${bold}Put in a task${normal}"
-    read -rp $'\033[33m>\033[0m ' task
+    read -r -e -p $'\033[33m>\033[0m ' task
 fi
 
 function installMinTrack() {
@@ -96,7 +96,7 @@ function writeTrackingForDate() {
     # stop if $2 doesnt start with a number
     if [ ! "$date" ] || [[ ! "$date" =~ ^[0-31] ]]; then
         echo -e "${bold}Put in a date ${normal}${gray}(MM-DD-YYYY)${normal}"
-        read -rp $'\033[33m>\033[0m ' date
+        read -r -e -p $'\033[33m>\033[0m ' date
         echo ""
     fi
 
