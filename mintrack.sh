@@ -17,7 +17,8 @@ task=$1
 today=$(date '+%m-%d-%Y');
 trackingdir="$HOME/.mintrack";
 bincommand="$HOME/bin/track";
-gitrepo="https://raw.githubusercontent.com/LeaveAirykson/mintrack/master/mintrack.sh"
+stamp=$(date +"%s");
+gitrepo="https://raw.githubusercontent.com/LeaveAirykson/mintrack/master/mintrack.sh?${stamp}"
 
 # task for an option if nothing is given
 if [ ! "$task" ]; then
@@ -114,6 +115,7 @@ function writeTrackingForDate() {
 }
 
 function update {
+    echo -e "\ntrying to update from: ${gitrepo}\n"
     if curl -H 'Cache-Control: no-cache' "${gitrepo}" > "$bincommand"; then
         echo -e "${green}Mintrack successfully updated!${normal}\n"
     fi
