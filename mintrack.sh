@@ -116,7 +116,7 @@ function writeTrackingForDate() {
 
 function update {
     echo -e "\ntrying to update from: ${gitrepo}\n"
-    if curl -LJO -H 'Cache-Control: no-cache' "${gitrepo}" > "$bincommand"; then
+    if curl -LJ -H 'Cache-Control: no-cache' "${gitrepo}" > "$bincommand"; then
         echo -e "${green}Mintrack successfully updated!${normal}\n"
     fi
 }
