@@ -10,6 +10,7 @@ red="\033[31m"
 yellow="\033[33m"
 gray="\033[90m"
 normal="\033[0m"
+dim="\033[2m"
 bold="\033[1m"
 
 task=$1
@@ -20,6 +21,7 @@ bincommand="$HOME/bin/track";
 # task for an option if nothing is given
 if [ ! "$task" ]; then
     echo -e "${bold}Put in a task${normal}"
+    echo -e "${gray}Use -h to show help.${normal}"
     read -r -e -p $'\033[33m>\033[0m ' task
 fi
 
@@ -110,6 +112,19 @@ function writeTrackingForDate() {
     writeTracking "$date" "$taskname"
 }
 
+function showHelp {
+    echo -e "\n${yellow}Mintrack Help${normal}"
+    echo -e "Mintrack is a minimal file based work tracker.\n"
+    echo -e "${yellow}Available options${normal}"
+    echo -e "${gray}-i\n  ${normal}Installs mintrack as a terminal command\n"
+    echo -e "${gray}-r\n  ${normal}Uninstalls mintrack\n"
+    echo -e "${gray}-l\n  ${normal}List trackings\n"
+    echo -e "${gray}-d ${dim}[MM-DD-YYYY] [task]\n  ${normal}Use different date than today${normal}"
+    echo -e "  Example: track -d 02-30-2019 \"Waldhof Release v1.16.0\"\n"
+    echo -e "${gray}-e${normal}\n  Empty all trackings\n"
+    echo -e "${gray}-h${normal}\n  Show this help\n"
+}
+
 function emptyTrackingDir {
     echo -e "${red}Warning: This will remove ALL tracked data!${normal}\n"
     read -p "Proceed? (Y/n) " emptyAnswer
@@ -153,6 +168,10 @@ case "$task" in
     # empty tracking dir
     '-e' )
         emptyTrackingDir
+        ;;
+
+    '-h')
+        showHelp
         ;;
 
     * )
