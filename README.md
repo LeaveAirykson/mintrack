@@ -20,7 +20,7 @@ The installer will place the file in your homefolder as: `~/bin/track`. Furtherm
 |`track -l`|This will list all entries from `~/.mintrack`.|
 |`track -e`|This will empty the file `~/.mintrack`.|
 |`track -d [MM-DD-YYY] [task]`|Track the task with a different date.|
-|`track -r`|This will remove mintrack by deleting `~/.mintrack` and `~/bin/track`.|
+|`track -r`|This will uninstall mintrack by deleting `~/.mintrack` and `~/bin/track`.|
 
 ### Examples
 ```bash
