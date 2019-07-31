@@ -17,6 +17,7 @@ task=$1
 today=$(date '+%m-%d-%Y');
 trackingdir="$HOME/.mintrack";
 bincommand="$HOME/bin/track";
+gitrepo="https://raw.githubusercontent.com/LeaveAirykson/mintrack/master/mintrack.sh"
 
 # task for an option if nothing is given
 if [ ! "$task" ]; then
@@ -112,12 +113,19 @@ function writeTrackingForDate() {
     writeTracking "$date" "$taskname"
 }
 
+function update {
+    if curl "${gitrepo}" > "$bincommand"; then
+        echo -e "${green}Mintrack successfully updated!${normal}\n"
+    fi
+}
+
 function showHelp {
     echo -e "\n${yellow}Mintrack Help${normal}"
     echo -e "Mintrack is a minimal file based work tracker.\n"
     echo -e "${yellow}Available options${normal}"
     echo -e "${gray}-i\n  ${normal}Installs mintrack as a terminal command\n"
     echo -e "${gray}-r\n  ${normal}Uninstalls mintrack\n"
+    echo -e "${gray}-u\n  ${normal}Updates mintrack\n"
     echo -e "${gray}-l\n  ${normal}List trackings\n"
     echo -e "${gray}-d ${dim}[MM-DD-YYYY] [task]\n  ${normal}Use different date than today${normal}"
     echo -e "  Example: track -d 02-30-2019 \"Waldhof Release v1.16.0\"\n"
@@ -172,6 +180,10 @@ case "$task" in
 
     '-h')
         showHelp
+        ;;
+
+    '-u')
+        update
         ;;
 
     * )

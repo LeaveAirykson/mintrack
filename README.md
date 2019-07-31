@@ -14,8 +14,12 @@ The installer will place the file in your homefolder as: `~/bin/track`. Furtherm
 |Option|Desc|
 |---|---|
 |`track [task]`|This will write the `[task]` prepended by the current date inside `~/.mintrack`.|
+|`track -i`|This install Mintrack as a command in `~/bin/track`.|
+|`track -u`|This try to update Mintrack.|
+|`track -h`|This will show the help and the available options.|
 |`track -l`|This will list all entries from `~/.mintrack`.|
 |`track -e`|This will empty the file `~/.mintrack`.|
+|`track -d [MM-DD-YYY] [task]`|Track the task with a different date.|
 |`track -r`|This will remove mintrack by deleting `~/.mintrack` and `~/bin/track`.|
 
 ### Examples
