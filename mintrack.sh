@@ -18,7 +18,7 @@ today=$(date '+%m-%d-%Y');
 trackingdir="$HOME/.mintrack";
 bincommand="$HOME/bin/track";
 stamp=$(date +"%s");
-gitrepo="https://raw.githubusercontent.com/LeaveAirykson/mintrack/master/mintrack.sh?${stamp}"
+gitrepo="https://raw.githubusercontent.com/LeaveAirykson/mintrack/master/mintrack.sh?nocache=${stamp}"
 
 # task for an option if nothing is given
 if [ ! "$task" ]; then
