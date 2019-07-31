@@ -36,7 +36,7 @@ function installMinTrack() {
 
     # Allow first installs and forced installs with -f
     if [ -f "$bincommand" ] && [ ! "$1" = '-f' ]; then
-        echo "Mintrack is already installed. Use -f to force reinstall."
+        echo "Mintrack is already installed. Use -i -f to force reinstall."
         exit 1
     fi
 
@@ -114,7 +114,7 @@ function writeTrackingForDate() {
 }
 
 function update {
-    if curl "${gitrepo}" > "$bincommand"; then
+    if curl -H 'Cache-Control: no-cache' "${gitrepo}" > "$bincommand"; then
         echo -e "${green}Mintrack successfully updated!${normal}\n"
     fi
 }
