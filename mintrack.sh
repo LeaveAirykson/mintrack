@@ -23,7 +23,7 @@ gitrepo="https://raw.githubusercontent.com/LeaveAirykson/mintrack/master/mintrac
 # task for an option if nothing is given
 if [ ! "$task" ]; then
     echo -e "${bold}Put in a task${normal}"
-    echo -e "${gray}Use -h to show help.${normal}"
+    echo -e "Use -h to show help."
     read -r -e -p $'\033[33m>\033[0m ' task
 fi
 
@@ -99,7 +99,7 @@ function writeTrackingForDate() {
 
     # stop if $2 doesnt start with a number
     if [ ! "$date" ] || [[ ! "$date" =~ ^[0-31] ]]; then
-        echo -e "${bold}Put in a date ${normal}${gray}(MM-DD-YYYY)${normal}"
+        echo -e "${bold}Put in a date ${normal}(MM-DD-YYYY)"
         read -r -e -p $'\033[33m>\033[0m ' date
         echo ""
     fi
@@ -125,14 +125,14 @@ function showHelp {
     echo -e "\n${yellow}Mintrack Help${normal}"
     echo -e "Mintrack is a minimal file based work tracker.\n"
     echo -e "${yellow}Available options${normal}"
-    echo -e "${gray}-i\n  ${normal}Installs mintrack as a terminal command\n"
-    echo -e "${gray}-r\n  ${normal}Uninstalls mintrack\n"
-    echo -e "${gray}-u\n  ${normal}Updates mintrack\n"
-    echo -e "${gray}-l\n  ${normal}List trackings\n"
-    echo -e "${gray}-d ${dim}[MM-DD-YYYY] [task]\n  ${normal}Use different date than today${normal}"
+    echo -e "${bold}-i\n  ${normal}Installs mintrack as a terminal command\n"
+    echo -e "${bold}-r\n  ${normal}Uninstalls mintrack\n"
+    echo -e "${bold}-u\n  ${normal}Updates mintrack\n"
+    echo -e "${bold}-l\n  ${normal}List trackings\n"
+    echo -e "${bold}-d ${normal}[MM-DD-YYYY] [task]\n  Use different date than today"
     echo -e "  Example: track -d 02-30-2019 \"Waldhof Release v1.16.0\"\n"
-    echo -e "${gray}-e${normal}\n  Empty all trackings\n"
-    echo -e "${gray}-h${normal}\n  Show this help\n"
+    echo -e "${bold}-e${normal}\n  Empty all trackings\n"
+    echo -e "${bold}-h${normal}\n  Show this help\n"
 }
 
 function emptyTrackingDir {
