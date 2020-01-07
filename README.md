@@ -17,7 +17,8 @@ The installer will place the file in your homefolder as: `~/bin/track`. Furtherm
 |`track -i`|This install Mintrack as a command in `~/bin/track`.|
 |`track -u`|This will try to update Mintrack.|
 |`track -h`|This will show the help and the available options.|
-|`track -l`|This will list all entries from `~/.mintrack`.|
+|`track -a`|This will list all entries from `~/.mintrack`.|
+|`track -l`|This will list the current entry from `~/.mintrack`.|
 |`track -e`|This will empty the file `~/.mintrack`.|
 |`track -d [MM-DD-YYY] [task]`|Track the task with a different date.|
 |`track -r`|This will uninstall mintrack by deleting `~/.mintrack` and `~/bin/track`.|

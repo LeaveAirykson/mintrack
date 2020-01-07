@@ -14,7 +14,7 @@ dim="\033[2m"
 bold="\033[1m"
 
 task=$1
-today=$(date '+%m-%d-%Y');
+today=$(date '+%Y-%m-%d');
 trackingdir="$HOME/.mintrack";
 bincommand="$HOME/bin/track";
 stamp=$(date +"%s");
@@ -76,6 +76,12 @@ function listTrackings() {
         cat "$trackingdir/$file"
         echo ""
     done
+}
+
+function showLastTracking() {
+    filename=$(ls -rt $trackingdir | tail -1);
+    echo -e "${yellow}$filename:${normal}"
+    cat "$trackingdir/$filename"
 }
 
 function writeTracking {
@@ -161,7 +167,6 @@ case "$task" in
 
     # install
     '-i')
-
         installMinTrack "$2"
         ;;
 
@@ -171,12 +176,16 @@ case "$task" in
         ;;
 
     # list all trackings
-    '-l')
+    '-a')
         listTrackings
+        ;;
+    # show current tracking
+    '-l')
+        showLastTracking
         ;;
 
     # empty tracking dir
-    '-e' )
+    '-e')
         emptyTrackingDir
         ;;
 
