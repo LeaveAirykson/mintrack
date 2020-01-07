@@ -142,11 +142,6 @@ case "$task" in
         uninstallMinTrack
         ;;
 
-    # install
-    '-i')
-        installMinTrack "$2"
-        ;;
-
     # use a different date
     '-d')
         writeTrackingForDate "$2" "$3"
