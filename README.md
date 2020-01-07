@@ -4,24 +4,23 @@ A very small bash script that writes parameters (=tasks) into a hidden textfile 
 
 ## Install
 
-The installer will place the file in your homefolder as: `~/bin/track`. Furthermore it will create the file `~/.mintrack` in which your tasks are written.
+Before you install Mintrack, make sure the folder `~/bin/` exists.
 
-1. Download the latest release here: [Mintrack latest release](https://github.com/LeaveAirykson/mintrack/archive/master.zip).
-2. Execute the script with the install option: `./mintrack.sh -i`.
-3. **Done!**
+```bash
+curl -LJ -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/LeaveAirykson/mintrack/master/mintrack.sh > ~/bin/track
+```
 
 ## Options
 |Option|Desc|
 |---|---|
 |`track [task]`|This will write the `[task]` prepended by the current date inside `~/.mintrack`.|
-|`track -i`|This install Mintrack as a command in `~/bin/track`.|
-|`track -u`|This will try to update Mintrack.|
-|`track -h`|This will show the help and the available options.|
-|`track -a`|This will list all entries from `~/.mintrack`.|
-|`track -l`|This will list the current entry from `~/.mintrack`.|
-|`track -e`|This will empty the file `~/.mintrack`.|
+|`track -u`|Update Mintrack.|
+|`track -h`|Show help and the available options.|
+|`track -a`|List all entries from `~/.mintrack`.|
+|`track -l`|List the current entry from `~/.mintrack`.|
+|`track -e`|Empty the file `~/.mintrack`.|
 |`track -d [MM-DD-YYY] [task]`|Track the task with a different date.|
-|`track -r`|This will uninstall mintrack by deleting `~/.mintrack` and `~/bin/track`.|
+|`track -r`|Uninstall mintrack by deleting `~/.mintrack` and `~/bin/track`.|
 
 ### Examples
 ```bash

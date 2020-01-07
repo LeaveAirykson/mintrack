@@ -20,41 +20,18 @@ bincommand="$HOME/bin/track";
 stamp=$(date +"%s");
 gitrepo="https://raw.githubusercontent.com/LeaveAirykson/mintrack/master/mintrack.sh?nocache=${stamp}"
 
-# task for an option if nothing is given
+# make sure we create the tracking dir if
+# it does not exist yet
+if [[ ! -d "$trackingdir" ]]; then
+    mkdir -p "$trackingdir"
+fi
+
+# ask for a task if nothing is given
 if [ ! "$task" ]; then
     echo -e "${bold}Put in a task${normal}"
     echo -e "Use -h to show help."
     read -r -e -p $'\033[33m>\033[0m ' task
 fi
-
-function installMinTrack() {
-
-    function placeFiles() {
-        cp -v ./mintrack.sh "$bincommand"
-        chmod +x "$bincommand"
-        mkdir -p "$trackingdir"
-    }
-
-    # Allow first installs and forced installs with -f
-    if [ -f "$bincommand" ] && [ ! "$1" = '-f' ]; then
-        echo "Mintrack is already installed. Use -i -f to force reinstall."
-        exit 1
-    fi
-
-    # ask if user wants to proceed with install
-    echo -e "\nThis will install mintrack as ${yellow}$bincommand${normal}\n"
-    read -p "Proceed? (Y/n) " installAnswer
-
-    # place files and output success
-    # if user accepts
-    if [ "$installAnswer" == 'Y' ]; then
-        if placeFiles; then
-            echo -e "${green}Mintrack successfully installed!${normal}\n"
-        fi
-    else
-        exit 1
-    fi
-}
 
 function uninstallMinTrack() {
     echo -e "${red}Warning: This will remove mintrack and ALL its data!${normal}\n"
